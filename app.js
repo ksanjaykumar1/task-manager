@@ -6,7 +6,9 @@ const notFound= require('./middleware/not-found')
 const errorHandlerMiddleware =require('./middleware/error-handler')
 // to get secret variable, then we are ivoking config
 require('dotenv').config()
-const port =3000
+
+// set port number to the environment vairable PORT or if there is nothing there than 3000
+const port = process.env.PORT || 3000
 
 
 // to json data in req.body
@@ -20,7 +22,7 @@ app.use(express.static('./public'))
 //routes
 app.use('/api/v1/tasks',tasks)
 
-// middleware
+// custom middleware
 app.use(notFound)
 app.use(errorHandlerMiddleware)
 
