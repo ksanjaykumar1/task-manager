@@ -1,8 +1,5 @@
-const { exists } = require("../model/Task")
 
-const notfound=(req,res)=>{
+const notFound=(req,res)=>res.status(404).send('Route does not exist')
 
-    res.status(404).send("Route Doesn't exists")
-}
 
-module.exports= notfound;
+module.exports= notFound;
